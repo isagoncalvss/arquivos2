@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>SuperAçaiajin</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/_CSS/style.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <h2>FORMULÁRIO SUPERAÇAÍAJIN</h2>
+    <form id="meuFormulario" onsubmit="return meuFormulario()">
+    <fieldset>
+        <legend>Dados Pessoais</legend>
+        <div class="parte1">
+        <label for="name">Nome:</label><br>
+        <input type="text" name="nome" class="parte1" id="nome"> <br><br>
+
+        <label for="age">Idade:</label><br>
+        <input type="number" name="idade" class="parte1" id="idade"> <br><br>
+
+        <label for="tel">Telefone:</label><br>
+        <input type="number" name="telefone" class="parte1"> <br><br>
+
+        <label for="endereço">Endereço:</label><br>
+        <input type="text" name="endereco" class="parte1"> <br><br>
+
+        <label for="country">Planeta de Origem:</label> <br>
+            <select name="pais" id="planet" class="parte1">
+                <option> Planeta Terra </option>
+                <option> Marte </option>
+                <option> Saturno </option>
+                <option> Vênus </option>
+                <option> Urano </option>
+            </select> 
+        </div>
+    </fieldset>
+<br>
+    <fieldset>
+        <legend>Dados Extras</legend>
+        <label for="race">Raça do universo 7 preferida:</label>
+            <select name="raca" id="race" class="parte2">
+                <option> Terráqueo </option>
+                <option> Marciano </option>
+                <option> Saturano </option>
+                <option> Venuziano </option>
+                <option> Uranoide </option>
+            </select>
+            <br><br>
+            <legend>Trabalho:</legend> 
+            <input type="checkbox" name="trabalho" value="autonomo">Autonomo
+            <input type="checkbox" name="trabalho" value="Empregado">Empregado
+            <input type="checkbox" name="trabalho" value="CLT">CLT
+            <input type="checkbox" name="trabalho" value="empresario">Empresario
+            <input type="checkbox" name="trabalho" value="tipo goku">Tipo Goku
+    </fieldset>
+<br>
+    <fieldset>
+        <legend>Seu açaí perfeito é de que jeito?</legend>
+        <input type="checkbox" name="jeito" value="puro">Puro
+        <input type="checkbox" name="jeito" value="banana">Com Banana
+        <input type="checkbox" name="jeito" value="morango">Com Morango
+        <input type="checkbox" name="jeito" value="granola">Com Granola
+        <input type="checkbox" name="jeito" value="terra">Tem gosto de terra
+    </fieldset>
+<br>
+    <fieldset>
+        <legend>Qual o tamanho preferido?</legend>
+        <input type="checkbox" name="tamanho" value="puro">500ml
+        <input type="checkbox" name="tamanho" value="banana">300ml
+        <input type="checkbox" name="tamanho" value="morango">100ml
+        <input type="checkbox" name="tamanho" value="granola">Casquinha
+        <input type="checkbox" name="tamanho" value="terra">Qual parte do gosto de terra você não entendeu?
+    </fieldset>
+<br>
+    <fieldset>
+        <label for="message">Observações:</label><br>
+            <textarea name="message" id="message" cols="160" rows="10">Escreva suas observações... Eu gosto de Açaí pois...</textarea>
+    </fieldset>
+
+    <button type="button">Enviar</button> 
+    <button type="reset">Limpar</button>
+    <button type="submit" onclick="json()">JSON</button>
+
+</form>
+
+
+    <script>
+        function json(){
+
+            var obj_form = {
+                nome: "",
+                idade: "",
+                passaTempo: 0,
+                comidaFavorita: "",
+            }
+
+            var el_nome = document.getElementById("nome");
+            obj_form.nome = el_nome.value;
+
+            var el_idade = document.getElementById("idade");
+            obj_form.idade = el_idade.value;
+
+            var el_passaTempo = document.getElementById("passaTempo");
+            obj_form.passaTempo = el_passaTempo.value;
+
+            var el_comidaFavorita = document.querySelector('input[name="comida"]:checked');
+            obj_form.comidaFavorita = el_comidaFavorita.value;
+
+
+            var json = JSON.stringify(obj_form, null, "");
+            document.write("<h1>Dados para Json</h1>");
+            document.write(json);
+
+            return json;
+}
+        
+    </script>
+</body>
+</html>
+
